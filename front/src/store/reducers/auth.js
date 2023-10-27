@@ -1,20 +1,21 @@
-import setAuth from "../actions/setAuth";
-import superUserAction from "../actions/setSuperUser";
+import { setAuthAction, superUserAction, logOutAction } from "../actions/auth"
 
 defaultState = {
     isAuthorize: false,
     isSuperUser: false,
 }
 
-const reducer = (state = defaultState, action) => {
+const authReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "SET_SUPERUSER":
             return {...state, superUserAction}
         case "SET_AUTH":
-            return {...state, setAuth}
+            return {...state, setAuthAction}
+        case "LOG_OUT":
+            return {...state, logOutAction}
         default:
             return state
     }
 }
 
-export default reducer
+export default authReducer;
