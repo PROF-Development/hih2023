@@ -26,7 +26,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'esbuild-loader',
         options: {
-            target: 'esnext',
+            target: 'es2015',
             loader: 'jsx',
         },
       },
