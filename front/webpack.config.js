@@ -24,11 +24,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-            },
+        loader: 'esbuild-loader',
+        options: {
+            target: 'es2015',
+            loader: 'jsx',
         },
       },
       {
