@@ -11,8 +11,8 @@ AUTH_ROUTER = APIRouter(prefix='/auth')
 
 @AUTH_ROUTER.post('/login')
 async def login_handler(data: LoginRequest, service: AuthService = Depends()) -> LoginResponse:
-    data = service.login_service(**data.model_dump())
-    return LoginResponse(**data)
+    data = await service.login_service(**data.model_dump())
+    return LoginResponse(token=data['access_token'], role=data['role'])
 
 
 @AUTH_ROUTER.get('/check', dependencies=[Depends(EmployeeBaseAuthorize())])

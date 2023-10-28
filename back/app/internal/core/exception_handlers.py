@@ -24,7 +24,9 @@ async def unknown_exception_handler(request, exc) -> Response:
 
 
 async def http_exception_handler(request: Request, exc: HTTPException):
-    headers = getattr(exc, 'headers', None)
+    headers = getattr(exc, 'headers')
+    if headers is None:
+        headers = {}
 
     if exc.status_code == 401:
         headers['WWW-Authenticate'] = 'Bearer'
