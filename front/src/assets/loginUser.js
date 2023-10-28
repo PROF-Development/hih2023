@@ -1,7 +1,11 @@
 import axios from 'axios';
-const loginUser = (form) => {
-    return axios.post({
-        url: 'localhost:8000/auth/login',
+
+import getHost from './getHost';
+
+const loginUser = async(form) => {
+    var host = getHost()
+    return await axios.post({
+        url: host+'/auth/login',
         data: form,
     }).then(response => {
         localStorage.setItem('access_token', response.data.access_token)
