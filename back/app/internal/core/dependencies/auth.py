@@ -1,13 +1,22 @@
-from fastapi import HTTPException, Request
+from fastapi import Depends, HTTPException, Request
 
+import config
 from internal.core.exceptions import AccessForbiddenException, ExpiredTokenException, InvalidTokenException
+from internal.core.roles import Roles
 from internal.services.auth.jwt import decode_jwt
+from internal.services.user import UserService
 
 
 class BaseAuthorize:
-    """Базовый класс зависимости FA для JWT Авторизации"""
+    """Базовый класс зависимости авторизации FA для JWT Авторизации"""
+
+    def __init__(self):
+        self.user_service = UserService()
 
     async def __call__(self, request: Request):
+        if config.DEBUG:
+            return
+
         raw_token = request.headers.get('Authorization')
 
         if not raw_token:
@@ -35,10 +44,10 @@ class BaseAuthorize:
 
 
 class EmployeeBaseAuthorize(BaseAuthorize):
-    async def has_access(self, login: str):
-        return True
+    async def has_access(self, login: str) -> bool:
+        return await self.user_service.check_access(login, (Roles.employee, Roles.manager))
 
 
 class ManagerBaseAuthorize(BaseAuthorize):
-    async def has_access(self, login: str):
-        return False
+    async def has_access(self, login: str) -> bool:
+        return await self.user_service.check_access(login, (Roles.employee, Roles.manager))
