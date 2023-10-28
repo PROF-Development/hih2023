@@ -26,6 +26,9 @@ async def unknown_exception_handler(request, exc) -> Response:
 async def http_exception_handler(request: Request, exc: HTTPException):
     headers = getattr(exc, 'headers', None)
 
+    if exc.status_code == 401:
+        headers['WWW-Authenticate'] = 'Bearer'
+
     if not is_body_allowed_for_status_code(exc.status_code):
         return Response(status_code=exc.status_code, headers=headers)
     return JSONResponse({'detail': exc.detail}, status_code=exc.status_code, headers=headers)

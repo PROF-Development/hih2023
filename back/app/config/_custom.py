@@ -1,0 +1,5 @@
+# TOKEN_LIFETIME_FORMAT = day:hour:minute
+TOKEN_LIFETIME = '0:1:0'
+JWT_SECRET = NotImplemented
+JWT_ALGORITHM = 'HS512'
+JWT_EXP_DATE_FORMAT = '%Y/%m/%d %H:%M'
