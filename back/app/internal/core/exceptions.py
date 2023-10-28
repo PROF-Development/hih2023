@@ -27,6 +27,30 @@ class AppException(Exception):
 
 
 class UnknownException(AppException):
-    system_prefix = 'APP'
+    system_prefix = 'SEARCH'
     msg = 'Service error'
     error_code = 1
+
+
+class AuthorizationException(AppException):
+    system_prefix = 'AUTH'
+
+
+class ExpiredTokenException(AuthorizationException):
+    msg = 'Token has expired'
+    error_code = 2
+
+
+class InvalidTokenException(AuthorizationException):
+    msg = 'Invalid token'
+    error_code = 3
+
+
+class AccessForbiddenException(AuthorizationException):
+    msg = 'Access forbidden'
+    error_code = 4
+
+
+class InvalidCredentialsException(AuthorizationException):
+    msg = 'Invalid credentials'
+    error_code = 5
