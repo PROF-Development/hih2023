@@ -164,6 +164,12 @@ input.invalid {
   height: 100%;
   background: url("../../public/img/bg.png") no-repeat center/cover;
 }
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 .search-form {
   max-width: 1140px;
   width: 100%;
@@ -218,17 +224,13 @@ input.invalid {
 .modal {
   position: fixed;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   z-index: 10;
   width: 100%;
-  min-height: 100vh;
-  height: 100%;
-  overflow-y: scroll;
+  height: 100vh;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
 }
 .modal--close {
   z-index: -3;
@@ -237,8 +239,6 @@ input.invalid {
 .modal-container {
   position: relative;
   z-index: 11;
-  display: flex;
-  flex-direction: column;
   max-width: 106rem;
   width: 100%;
   background: #fff;
@@ -294,13 +294,13 @@ input.invalid {
   font-size: 2rem;
   padding: 1rem 0.5rem;
 }
-.modal-form__group select {
+/*.modal-form__group select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
-  background: url("../../public/img/Stroke.png") no-repeat 99% center;
-}
+  background: url("../img/Stroke.png") no-repeat 99% center;
+}*/
 .modal-form__check {
   display: flex;
   align-items: center;
@@ -326,9 +326,9 @@ input.invalid {
   font-family: "Muller Medium";
   font-size: 3.5rem;
 }
-.modal input[type=date]::-webkit-calendar-picker-indicator {
-  background: transparent url("../../public/img/Calendar.png") no-repeat center/contain;
-}
+/*.modal input[type=date]::-webkit-calendar-picker-indicator {
+  background: transparent url("../img/Calendar.png") no-repeat center/contain;
+}*/
 .modal input[type=checkbox] {
   display: none;
 }
