@@ -21,7 +21,7 @@ const LoginForm = () => {
         navigate('/')
     }
     return (
-        <div></div>
+        <h1>Хуйня</h1>
     )
 }
 
