@@ -9,10 +9,11 @@ const loginUser = ({username, password}) => {
         url: 'localhost:8000/auth/login',
         data: body,
     }).then(response => {
+        localStorage.setItem('access_token', response.data.access_token)
         return {
             status: 200,
             message: 'ok',
-            role: response.data.role,
+            role: response.data.role
         }
     }).catch(response => {
         return {
