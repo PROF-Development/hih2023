@@ -1,6 +1,4 @@
-import { setAuthAction, superUserAction, logOutAction } from "../actions/auth"
-
-defaultState = {
+const defaultState = {
     isAuthorize: false,
     isSuperUser: false,
 }
@@ -8,11 +6,11 @@ defaultState = {
 const authReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "SET_SUPERUSER":
-            return {...state, superUserAction}
+            return {...state, isAuthorize: true, isSuperUser: true}
         case "SET_AUTH":
-            return {...state, setAuthAction}
+            return {...state, isAuthorize: true}
         case "LOG_OUT":
-            return {...state, logOutAction}
+            return {...state, isAuthorize: false, isSuperUser: false}
         default:
             return state
     }

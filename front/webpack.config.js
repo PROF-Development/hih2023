@@ -19,6 +19,9 @@ module.exports = {
     port: 3000,
     hot: true,
   },
+  resolve: {
+    aliasFields: ['browser'],
+  },
   module: {
     rules: [
       {
@@ -31,8 +34,8 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.sass|css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
