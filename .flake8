@@ -13,6 +13,8 @@ filename =
     *.py
 hang-closing = 1
 ignore =
+    E501,
+    F401,
     E133,
     E306,
     E203,
