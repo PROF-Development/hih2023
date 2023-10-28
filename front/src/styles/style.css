@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Muller Regular";
   src: url("../../public/fonts/MullerRegular/MullerRegular.eot");
@@ -64,6 +65,11 @@ input.invalid {
   color: #F5F5F5;
   border: 1px solid #4BE1CD;
 }
+.btn-trans-primary {
+  background: transparent;
+  color: #4BE1CD;
+  border: 1px solid #4BE1CD;
+}
 
 .header {
   margin-top: 3rem;
@@ -108,6 +114,7 @@ input.invalid {
   display: flex;
   flex-direction: column;
   margin-bottom: 6rem;
+  position: relative;
 }
 .auth-form__group label {
   font-size: 2rem;
@@ -121,6 +128,15 @@ input.invalid {
   background: transparent;
   transition: 0.3s;
 }
+.auth-form__group span {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transform: translateY(50%);
+  font-size: 1.2rem;
+  color: red;
+  font-family: "Muller Medium";
+}
 .auth-form__btn {
   position: relative;
   display: block;
@@ -131,10 +147,209 @@ input.invalid {
   font-size: 2.5rem;
 }
 
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 85vh;
   height: 100%;
   background: url("../../public/img/bg.png") no-repeat center/cover;
+}
+.search-form {
+  max-width: 1140px;
+  width: 100%;
+  background: #F5F5F5;
+  padding: 6rem 11rem;
+  border-radius: 6px;
+}
+.search-form__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+.search-form__btn {
+  font-family: "Muller Regular";
+  font-size: 2.5rem;
+  padding: 1.8rem 5.6rem;
+}
+.search-form__input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-label__title {
+  font-family: "Muller Medium";
+  font-size: 3.5rem;
+}
+.search-label__filt {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.search-label__filt p {
+  margin-left: 5px;
+  font-size: 2rem;
+}
+.search-input__row {
+  font-size: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  margin-right: 4rem;
+  border: 1px solid #4BE1CD;
+}
+.search-input__row::-moz-placeholder {
+  color: #4BE1CD;
+}
+.search-input__row::placeholder {
+  color: #4BE1CD;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.modal--close {
+  z-index: -3;
+  opacity: 0;
+}
+.modal-container {
+  position: relative;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  max-width: 106rem;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+.modal-close {
+  position: absolute;
+  z-index: 13;
+  top: 4%;
+  right: 4%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.modal-close span {
+  position: relative;
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: #4BE1CD;
+  transform: rotate(45deg);
+}
+.modal-close span::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background: #4BE1CD;
+  transform: rotate(90deg);
+}
+.modal-form {
+  padding: 5rem;
+}
+.modal-form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.modal-form__group label {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.modal-form__group input, .modal-form__group select {
+  border: 1px solid #4BE1CD;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
+.modal-form__group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  background: url("../../public/img/Stroke.png") no-repeat 99% center;
+}
+.modal-form__check {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.modal-form__check label {
+  font-size: 2rem;
+}
+.modal-form__buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3.5rem;
+}
+.modal-form__btn {
+  margin-right: 8.4rem;
+  padding: 1.8rem 5rem;
+}
+.modal-form__btn:last-child {
+  margin-right: 0;
+}
+.modal-title {
+  margin-bottom: 3rem;
+  font-family: "Muller Medium";
+  font-size: 3.5rem;
+}
+.modal input[type=date]::-webkit-calendar-picker-indicator {
+  background: transparent url("../../public/img/Calendar.png") no-repeat center/contain;
+}
+.modal input[type=checkbox] {
+  display: none;
+}
+.modal-form__check label::before {
+  content: "";
+  color: #4BE1CD;
+  display: inline-block;
+  font: 20px/25px FontAwesome;
+  margin-right: 1rem;
+  position: relative;
+  text-align: center;
+  text-indent: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-weight: bold;
+  background: transparent;
+  -o-border-image: initial;
+     border-image: initial;
+  border: 1px solid #4BE1CD;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+.modal-form__check input:checked + label::before {
+  content: "✓";
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -149,6 +364,29 @@ input.invalid {
   }
   .auth-img {
     display: none;
+  }
+  .search-form {
+    width: 100%;
+    padding: 3rem 6rem;
+  }
+  .search-form__label {
+    flex-direction: column;
+    align-items: start;
+  }
+  .search-form__input {
+    flex-direction: column;
+  }
+  .search-form__btn {
+    width: 100%;
+  }
+  .search-label__title {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+  .search-input__row {
+    margin-bottom: 2rem;
+    margin-right: 0;
   }
 }
 @media screen and (max-width: 575px) {
@@ -183,7 +421,18 @@ input.invalid {
   }
   .auth-form__btn {
     width: 100%;
+    margin-top: 4rem;
     padding: 1rem;
     transform: none;
+  }
+  .search-form {
+    padding: 2rem 1rem;
+  }
+  .modal-form__buttons {
+    flex-direction: column;
+  }
+  .modal-form__btn {
+    margin-right: 0;
+    margin-bottom: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
