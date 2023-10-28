@@ -1,14 +1,11 @@
-export const setAuth = {
-    type: 'SET_AUTH',
-    payload: {isAuthorize: true},
+export const setAuthAction = {
+    type: 'SET_AUTH'
 }
 
 export const superUserAction = {
-    type: 'SET_SUPERUSER',
-    payload: {isAuthorize: true, isSuperUser: true},
+    type: 'SET_SUPERUSER'
 }
 
 export const logOutAction = {
-    type: 'LOG_OUT',
-    payload: {isAuthorize: false, isSuperUser: false},
+    type: 'LOG_OUT'
 }
