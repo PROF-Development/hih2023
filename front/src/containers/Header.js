@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './styles/style.css';
-import './styles/bootstrap-grid.min.css';
-import  './styles/reset.css';
+import '../styles/style.css';
+import '../styles/bootstrap-grid.min.css';
+import  '../styles/reset.css';
 
 const Header = () => {
     return (
@@ -11,7 +11,7 @@ const Header = () => {
             <div class="header-wrapper">    
                 <div class="row align-items-center justify-content-between">
                     <div class="col-12 col-sm-4 col-md-4 col-lg-2">
-                        <Link to="index.html" class="header-logo"><img src="./img/big-logo.png" alt="logo"></img></a>
+                        <Link to="index.html" class="header-logo"><img src="./img/big-logo.png" alt="logo"></img></Link>
                     </div>
                     <div class="col-12 col-sm-8 col-md-6">
                         <div class="header-buttons">
