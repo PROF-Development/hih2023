@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { WithContext as ReactTags } from 'react-tag-input'
-import '../styles/style_tag.css'
-
+import  '../styles/reset.css';
+import '../styles/bootstrap-grid.min.css';
+import '../styles/style.css';
+import '../styles/style_tag.css';
 const KeyCodes = {
   comma: 188,
   enter: 13,
@@ -24,7 +26,7 @@ const Tags = () => {
   }
 
   return (
-    <div className="tags-container">
+    <div className="search-input__row">
       <ReactTags
         tags={tags}
         handleDelete={handleDelete}

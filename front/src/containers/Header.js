@@ -31,7 +31,7 @@ const Header = () => {
             <div className="header-wrapper">    
                 <div className="row align-items-center justify-content-between">
                     <div className="col-12 col-sm-4 col-md-4 col-lg-2">
-                        <Link to="/" className="header-logo"><img src="./img/big-logo.png" alt="logo"></img></Link>
+                        <Link to="/" className="header-logo"><img src="../../img/big-logo.png" alt="logo"></img></Link>
                     </div>
                     <div className="col-8 col-sm-8 col-md-6">
                         <div className="header-buttons">
