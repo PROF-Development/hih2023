@@ -35,7 +35,6 @@ const RowItem = (props) => {
 
 
 const SearchForm = () => {
-
     return (
         <section className="section search">
             <div className="container">
@@ -43,7 +42,7 @@ const SearchForm = () => {
                     <form action="" className="search-form">
                         <div className="search-form__label search-label">
                             <h2 className="search-label__title">Поиск документации</h2>
-                            <PopUp />
+                            <PopUp/>
                         </div>
                         <div className="search-form__input search-input">
                             <Tags><input type="text" placeholder="Ключевые слова" className="search-input__row"></input></Tags>

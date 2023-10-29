@@ -4,6 +4,7 @@ import  '../styles/reset.css';
 import '../styles/bootstrap-grid.min.css';
 import '../styles/style.css';
 import '../styles/style_tag.css';
+import { useStore } from 'react-redux';
 const KeyCodes = {
   comma: 188,
   enter: 13,
@@ -13,15 +14,13 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter]
 
 const Tags = () => {
   const [tags, setTags] = useState([])
-
+  const store = useStore()
   const handleDelete = i => {
     const newTags = tags.filter((tag, index) => index !== i)
     setTags(newTags)
   }
 
   const handleAddition = tag => {
-    console.log(tag)
-    console.log(tags)
     setTags([...tags, tag])
   }
 

@@ -1,6 +1,6 @@
 const defaultState = {
-    isAuthorize: false,
-    isSuperUser: false,
+    isAuthorize: true,
+    isSuperUser: true,
 }
 
 const authReducer = (state = defaultState, action) => {

@@ -742,7 +742,7 @@ button {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background: url("../../public/img/Paper plus.png") no-repeat center/contain;
+  background: url("../../public/img/Paper Plus.png") no-repeat center/contain;
   transform: translate(-2%, -50%);
 }
 .change-form__file p {
@@ -814,10 +814,10 @@ button {
   transform: translate(-2%, -52%);
 }
 .profile-photo__refresh::before {
-  background: url("../../public/img/edit.png") no-repeat center/contain;
+  background: url("../../public/img/Edit.png") no-repeat center/contain;
 }
 .profile-photo__delete::before {
-  background: url("../../public/img/delete.png") no-repeat center/contain;
+  background: url("../../public/img/Delete.png") no-repeat center/contain;
 }
 .profile-edit {
   margin-left: 6rem;

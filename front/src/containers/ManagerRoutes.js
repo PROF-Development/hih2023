@@ -3,17 +3,15 @@ import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PublishRoutes from "../components/PublishRoutes";
 
-const AuthorizationRoutes = () => {
+const ManagerRoutes = () => {
     const store = useStore()
     const navigate = useNavigate()
     
-    useEffect(() => store.getState().auth.isAuthorize ? null : navigate('/login/'))
+    useEffect(() => {store.getState().auth.isSuperUser ? null : navigate('/forbidden')})
 
     return (
         <PublishRoutes/>
     )
-    
-   
 }
 
-export default AuthorizationRoutes;
+export default ManagerRoutes;

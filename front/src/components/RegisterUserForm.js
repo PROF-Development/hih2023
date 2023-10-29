@@ -3,7 +3,7 @@ import  '../styles/reset.css';
 import '../styles/bootstrap-grid.min.css';
 import '../styles/style.css';
 
-const RegForm = () => {
+const RegisterUserForm = () => {
     return(
         <section className="section reg">
             <div className="container">
@@ -46,4 +46,4 @@ const RegForm = () => {
 
 }
 
-export default RegForm;
+export default RegisterUserForm;
