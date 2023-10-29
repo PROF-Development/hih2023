@@ -6,9 +6,6 @@ import PopUp from './PopUp.js';
 
 
 const SearchForm = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     return(
         <section className="section search">
@@ -19,7 +16,6 @@ const SearchForm = () => {
                             <h2 className="search-label__title">Поиск документации</h2>
                             <PopUp/>
                         </div>
-                        
                         <div className="search-form__input search-input">
                             <input type="text" placeholder="Введите запрос" className="search-input__row"></input>
                             <button type="button" className="btn btn-primary search-form__btn">Поиск</button>
