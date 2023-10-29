@@ -6,9 +6,6 @@ import PopUp from './PopUp.js';
 
 
 const SearchForm = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     return(
         <section className="section search">

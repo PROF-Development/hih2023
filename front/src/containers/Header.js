@@ -35,7 +35,8 @@ const Header = () => {
                     </div>
                     <div className="col-8 col-sm-8 col-md-6">
                         <div className="header-buttons">
-                            <Link to="/search" className="header-buttons__btn btn btn-trans">Поиск документации</Link>
+                            {auth.isAuthorize ? 
+                            <Link to="/search" className="header-buttons__btn btn btn-trans">Поиск документации</Link> : null}
                             {auth.isAuthorize ? 
                             <Link to="/" className="header-buttons__btn btn btn-primary" onClick={handleLogout}>Выйти</Link> 
                             :<Link to="/login" className="header-buttons__btn btn btn-primary">Вход</Link>

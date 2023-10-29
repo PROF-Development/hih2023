@@ -5,76 +5,90 @@ import '../styles/style.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-function PopUp() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+const PopUp = () => {
+    const initialState = {
+        type: '',
+        name: '',
+        number: '',
+        release_date: '',
+        effective_date: '',
+    }
+    const [searchForm, setSearchForm]  = useState(initialState)
+    const obj = ['ГОСТ','Указ президента']
   return (
-    <>
       <Popup trigger=
-                {<div className="search-label__filt" onClick={handleShow}>
+                {<div className="search-label__filt" onClick={open}>
                   <img src="img/Filter.png" alt="filter"></img>
                   <p>фильтр</p>
                 </div>}modal nested>
                 {close => (
-                    <div class="modal">
-                      <div class="modal-container">
-                          <div class="modal-close" onClick={() => close()}><span></span></div>
-                          <form action="" class="modal-form">
-                              <h2 class="modal-title">Фильтр</h2>
-                              <div class="modal-form__group">
-                                  <label for="typeDoc">Тип документа</label>
-                                  <select id="typeDoc">
-                                      <option value=""></option>
-                                      <option value="1">asd</option>
-                                      <option value="2">fiv</option>
+                    <div className="modal">
+                      <div className="modal-container">
+                          <div className="modal-close" onClick={close}><span></span></div>
+                          <form action="" className="modal-form" onSubmit={e => e.preventDefault()}>
+                              <h2 className="modal-title">Фильтр</h2>
+                              <div className="modal-form__group">
+                                  <label htmlFor="typeDoc">Тип документа</label>
+                                  <select id="typeDoc" value={searchForm.type} onChange={e => {
+                                    setSearchForm({...searchForm, type: e.target.options[e.target.selectedIndex].text})}
+                                    }>
+                                        <option></option>
+                                        {obj.map((e,j) => {return <option key={j}>{e}</option>})}
                                   </select>
                               </div>
-                              <div class="modal-form__group">
-                                  <label for="nameDoc">Название документа</label>
-                                  <input type="text" id="nameDoc"></input>
+                              <div className="modal-form__group">
+                                  <label htmlFor="nameDoc">Название документа</label>
+                                  <input type="text" id="nameDoc" value={searchForm.name} onChange={e => 
+                                    setSearchForm({...searchForm, name: e.target.value})
+                                  }></input>
                               </div>
-                              <div class="modal-form__group">
-                                  <label for="numDoc">Номер документа</label>
-                                  <input type="text" id="numDoc"></input>
+                              <div className="modal-form__group">
+                                  <label htmlFor="numDoc" >Номер документа</label>
+                                  <input type="text" id="numDoc" value={searchForm.number} onChange={e => 
+                                    setSearchForm({...searchForm, number: e.target.value})
+                                  }></input>
+
                               </div>
-                              <div class="modal-form__row">
-                                  <div class="row">
-                                      <div class="col-12 col-md-6">
-                                          <div class="modal-form__group">
-                                              <label for="">Дата выхода документа</label>
-                                              <input type="date"></input>
+                              <div className="modal-form__row">
+                                  <div className="row">
+                                      <div className="col-12 col-md-6">
+                                          <div className="modal-form__group">
+                                              <label htmlFor="" >Дата выхода документа</label>
+                                              <input type="date" value={searchForm.release_date} onChange={e => 
+                                                setSearchForm({...searchForm, release_date: e.target.value})
+                                              }></input>
                                           </div>
                                       </div>
-                                      <div class="col-12 col-md-6">
-                                          <div class="modal-form__group">
-                                              <label for="">Дата ввода действия</label>
-                                              <input type="date"></input>
+                                      <div className="col-12 col-md-6">
+                                          <div className="modal-form__group">
+                                              <label htmlFor="">Дата ввода действия</label>
+                                              <input type="date" value={searchForm.effective_date} onChange={e => 
+                                                setSearchForm({...searchForm, effective_date: e.target.value})
+                                              }></input>
                                           </div>
                                       </div>
                                   </div>
                               </div>
-                              <div class="modal-form__row">
-                                  <div class="row">
-                                      <div class="col-12 col-md-6">
-                                          <div class="modal-form__check">
+                              <div className="modal-form__row">
+                                  <div className="row">
+                                      <div className="col-12 col-md-6">
+                                          <div className="modal-form__check">
                                               <input type="checkbox" id="isKeyWord"></input>
-                                              <label for="isKeyWord">Поиск по ключевым словам</label>
+                                              <label htmlFor="isKeyWord">Поиск по ключевым словам</label>
                                           </div>
                                       </div>
-                                      <div class="col-12 col-md-6">
-                                          <div class="modal-form__check">
+                                      <div className="col-12 col-md-6">
+                                          <div className="modal-form__check">
                                               <input type="checkbox" id="isEnter"></input>
-                                              <label for="isEnter">Поиск по внутренностям документа</label>
+                                              <label htmlFor="isEnter">Поиск по внутренностям документа</label>
                                           </div>
                                       </div>
                                   </div>
                               </div>
-                              <div class="modal-form__buttons">
-                                  <button class="modal-form__btn btn btn-trans-primary">Отменить</button>
-                                  <button class="modal-form__btn btn btn-primary">Применить</button>
+                              <div className="modal-form__buttons">
+                                  <button className="modal-form__btn btn btn-trans-primary"
+                                  onClick={() => setSearchForm(initialState)}>Сбросить</button>
+                                  <button className="modal-form__btn btn btn-primary">Применить</button>
                               </div>
                           </form>
                       </div>
@@ -82,7 +96,6 @@ function PopUp() {
                     )
                 }
             </Popup>
-    </>
   );
 }
 
