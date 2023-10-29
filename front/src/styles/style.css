@@ -15,6 +15,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 * {
   box-sizing: border-box;
   outline: none;
@@ -45,6 +46,10 @@ input.invalid {
   border-color: red !important;
 }
 
+button {
+  cursor: pointer;
+}
+
 .btn {
   border-radius: 5px;
   font-size: 1.8rem;
@@ -73,6 +78,8 @@ input.invalid {
 
 .header {
   margin-top: 3rem;
+  position: relative;
+  z-index: 3;
 }
 .header-logo img {
   width: 50%;
@@ -82,11 +89,35 @@ input.invalid {
   justify-content: flex-end;
 }
 .header-buttons__btn {
-  padding: 1rem 1.8rem;
-  margin-right: 3rem;
+  margin-right: 4rem;
+  border: none;
+  background: none;
+  transition: 0.3s;
+}
+.header-buttons__btn:hover {
+  background: none;
+  color: #4BE1CD;
 }
 .header-buttons__btn:last-child {
   margin-right: 0;
+}
+
+.header-admin {
+  position: relative;
+  z-index: 3;
+}
+.header-admin .header-logo img {
+  width: 100%;
+}
+.header-admin .header-user {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-admin .header-buttons__btn {
+  margin-right: 3rem;
+  text-align: center;
 }
 
 .auth {
@@ -96,6 +127,20 @@ input.invalid {
   align-items: center;
   justify-content: center;
   margin: 2rem 0;
+}
+.auth::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../../public/img/auth-bg.png") no-repeat center/contain;
+}
+.auth-wrapper {
+  position: relative;
+  z-index: 3;
 }
 .auth-img img {
   max-width: 100%;
@@ -147,16 +192,7 @@ input.invalid {
   font-size: 2.5rem;
 }
 
-.search-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
 .search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,11 +207,15 @@ input.invalid {
   position: relative;
 }
 .search-form {
-  max-width: 1140px;
+  max-width: 114rem;
   width: 100%;
   background: #F5F5F5;
   padding: 6rem 11rem;
   border-radius: 6px;
+}
+.search-form--active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .search-form__label {
   display: flex;
@@ -224,13 +264,17 @@ input.invalid {
 .modal {
   position: fixed;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 10;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
 }
 .modal--close {
   z-index: -3;
@@ -239,6 +283,8 @@ input.invalid {
 .modal-container {
   position: relative;
   z-index: 11;
+  display: flex;
+  flex-direction: column;
   max-width: 106rem;
   width: 100%;
   background: #fff;
@@ -294,13 +340,13 @@ input.invalid {
   font-size: 2rem;
   padding: 1rem 0.5rem;
 }
-/*.modal-form__group select {
+.modal-form__group select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
-  background: url("../img/Stroke.png") no-repeat 99% center;
-}*/
+  background: url("../../public/img/Stroke.png") no-repeat 99% center;
+}
 .modal-form__check {
   display: flex;
   align-items: center;
@@ -326,9 +372,9 @@ input.invalid {
   font-family: "Muller Medium";
   font-size: 3.5rem;
 }
-/*.modal input[type=date]::-webkit-calendar-picker-indicator {
-  background: transparent url("../img/Calendar.png") no-repeat center/contain;
-}*/
+.modal input[type=date]::-webkit-calendar-picker-indicator {
+  background: transparent url("../../public/img/Calendar.png") no-repeat center/contain;
+}
 .modal input[type=checkbox] {
   display: none;
 }
@@ -355,6 +401,286 @@ input.invalid {
   content: "✓";
 }
 
+.docs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.docs-wrapper {
+  max-width: 114rem;
+  width: 100%;
+  background: #F5F5F5;
+  padding-bottom: 1px;
+}
+.docs-row {
+  border-top: 1px solid #4BE1CD;
+  border-bottom: 1px solid #4BE1CD;
+}
+.docs-row:last-child {
+  border-bottom: 2px solid #4BE1CD;
+  padding-bottom: 1px;
+}
+.docs-col {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.docs-col a {
+  color: #000;
+  transition: 0.3s;
+}
+.docs-col a:hover {
+  color: #4BE1CD;
+}
+
+.reg {
+  padding: 5rem 0;
+}
+.reg-wrapper {
+  position: relative;
+  z-index: 3;
+}
+.reg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  background: url("../../public/img/reg-bg.png") no-repeat center left/contain;
+  top: 0;
+  left: 0;
+}
+.reg-form {
+  width: 100%;
+  padding: 7rem;
+  background: #F5F5F5;
+  border-radius: 12px;
+}
+.reg-form__title {
+  margin-bottom: 4rem;
+  font-size: 5rem;
+}
+.reg-form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+.reg-form__group label, .reg-form__group input {
+  font-size: 2rem;
+}
+.reg-form__group label {
+  color: #4BE1CD;
+  cursor: pointer;
+}
+.reg-form__group input {
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #4BE1CD;
+  padding-top: 5px;
+}
+.reg-form__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.reg-form__btn {
+  margin-right: 4rem;
+  width: 25.8rem;
+  padding: 1.8rem 0;
+}
+.reg-form__btn:last-child {
+  margin-right: 0;
+}
+
+.nf {
+  padding: 17rem;
+  color: #fff;
+}
+.nf-wrapper {
+  position: relative;
+  z-index: 3;
+}
+.nf::before {
+  content: "";
+  background: url("../../public/img/404.png") no-repeat center right/contain;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.nf-title {
+  max-width: 56rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-family: "Muller Medium";
+  font-size: 5.5rem;
+}
+.nf-subtitle {
+  max-width: 38rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.nf-btn {
+  padding: 1.8rem;
+  font-size: 2.5rem;
+}
+
+.na {
+  padding: 17rem;
+  color: #fff;
+}
+.na-wrapper {
+  position: relative;
+  z-index: 3;
+}
+.na::before {
+  content: "";
+  background: url("../../public/img/403.png") no-repeat center right/contain;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.na-title {
+  max-width: 56rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-family: "Muller Medium";
+  font-size: 5.5rem;
+}
+.na-subtitle {
+  max-width: 60rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.na-btn {
+  padding: 1.8rem;
+  font-size: 2.5rem;
+}
+
+.add {
+  padding: 5rem 0;
+}
+.add-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.add-form {
+  position: relative;
+  z-index: 3;
+  max-width: 106rem;
+  width: 100%;
+  background: #fff;
+  padding: 4rem 11rem;
+  border-radius: 6px;
+}
+.add-form input[type=date]::-webkit-calendar-picker-indicator {
+  background: transparent url("../../public/img/Calendar.png") no-repeat center/contain;
+}
+.add-form__title {
+  margin-bottom: 3rem;
+  font-size: 3.5rem;
+  font-family: "Muller Medium";
+}
+.add-form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.add-form__group label {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.add-form__group input, .add-form__group select {
+  border: 1px solid #4BE1CD;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
+.add-form__group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  background: url("../../public/img/Stroke.png") no-repeat 99% center;
+}
+.add-form__file {
+  display: flex;
+  align-items: center;
+}
+.add-form__file input {
+  z-index: -2;
+  position: absolute;
+  opacity: 0;
+}
+.add-form__file label {
+  position: relative;
+  display: block;
+  background: rgba(105, 75, 245, 0.13);
+  padding: 1.2rem 6.9rem;
+  font-size: 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.add-form__file label span {
+  position: relative;
+  display: block;
+}
+.add-form__file label span::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background: url("../../public/img/Paper plus.png") no-repeat center/contain;
+  transform: translate(-2%, -50%);
+}
+.add-form__file p {
+  margin-left: 1.5rem;
+  font-size: 2rem;
+}
+.add-form__buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+.add-form__btn {
+  padding: 1.8rem 5.4rem;
+  margin-right: 8rem;
+}
+.add-form__btn:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1199px) {
+  html {
+    font-size: 9px;
+  }
+  .header-admin .header-logo {
+    margin-bottom: 0;
+  }
+  .header-admin .header-logo img {
+    width: 40%;
+  }
+  .header-admin .header-buttons {
+    margin-top: 2rem;
+    justify-content: space-between;
+  }
+  .header-admin .header-buttons__btn {
+    margin-right: 0;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 991px) {
   html {
     font-size: 8px;
@@ -390,6 +716,23 @@ input.invalid {
   .search-input__row {
     margin-bottom: 2rem;
     margin-right: 0;
+  }
+  .reg-form__buttons {
+    flex-direction: column;
+  }
+  .reg-form__btn {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .reg-form__btn:last-child {
+    margin-bottom: 0;
+  }
+  .add-form__buttons {
+    flex-direction: column;
+  }
+  .add-form__btn {
+    margin-right: 0;
+    margin-top: 2rem;
   }
 }
 @media screen and (max-width: 575px) {
@@ -438,46 +781,4 @@ input.invalid {
     margin-right: 0;
     margin-bottom: 2rem;
   }
-}
-
-.not-found {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-}
-
-.not-found-content {
-  text-align: center;
-  padding: 50px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.not-found h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.not-found p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.not-found .back-link {
-  text-decoration: none;
-  color: #694BF5;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  border: 2px solid #694BF5;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.not-found .back-link:hover {
-  background-color: #694BF5;
-  color: #FFF;
-}
-
+}/*# sourceMappingURL=style.css.map */
