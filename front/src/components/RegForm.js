@@ -43,7 +43,6 @@ const RegForm = () => {
             </div>
         </section>
     )
-
 }
 
 export default RegForm;
