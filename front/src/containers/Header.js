@@ -11,8 +11,10 @@ const Header = () => {
     const store = useStore()
     const authStatus = useSelector(store => store.auth)
     const [auth, setAuth] = useState(authStatus)
-    
+
     useEffect(() => {
+        if (localStorage.getItem('access_token'))
+            store.dispatch(superUserAction)
         setAuth(authStatus)
     }, [authStatus])
 

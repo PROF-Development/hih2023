@@ -4,8 +4,7 @@ import getHost from './getHost';
 
 const createDocument = async(form) => {
     var host = getHost()
-    console.log(form)
-    console.log(host+'/api/v1/document/document')
+    form = {...form, tags : form.tags.split(',')}
     const message = await axios.post(host+'/api/v1/document/document', form, {headers : {'Authorization' : localStorage.getItem('token')}}).then(
         response => 'Ok').catch(error => {
             console.log(error)

@@ -11,6 +11,7 @@ import AuthorizationRoutes from './containers/AuthorizationRoutes';
 import ForbiddenPage from './pages/ForbiddenPage';
 import ManagerRoutes from './containers/ManagerRoutes';
 import CreateDocumentPage from './pages/CreateDocumentPage';
+import RegisterPage from './pages/RegisterPage';
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
 
                 <Route path="/manager/" element={<ManagerRoutes />}>
                     <Route path="/manager/create" element={<CreateDocumentPage/>}/>
+                    <Route path="/manager/register" element={<RegisterPage/>}/>
                 </Route>
                 <Route path="/forbidden" element={<ForbiddenPage/>}/>
             </Routes>

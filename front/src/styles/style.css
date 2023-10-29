@@ -467,6 +467,13 @@ button {
   flex-direction: column;
   margin-bottom: 4rem;
 }
+.reg-form__group select {
+  border: 1px solid #4BE1CD;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
 .reg-form__group label, .reg-form__group input {
   font-size: 2rem;
 }

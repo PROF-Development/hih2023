@@ -6,7 +6,7 @@ import PDFViewer from '../assets/PDFViewer';
 import createDocument from '../assets/createDocument';
 const RegisterDocumentForm = () => {
     const defaultState = {
-        type: '',
+        document_type: '',
         name: '',
         number: '',
         release_date: '',
@@ -19,7 +19,6 @@ const RegisterDocumentForm = () => {
     const [file, setFile] = useState(null)
     const [errorCreate, setErrorCreate] = useState(null)
     const createHandler = () => {
-        setData({...data, tags : data.tags.split(',')})
         createDocument(data).then(e => e === 'Ok?' ? null : setErrorCreate(e))
     }
 
@@ -32,8 +31,8 @@ const RegisterDocumentForm = () => {
                         <h2 className="add-form__title">Добавление новых документов</h2>
                         <div className="add-form__group">
                             <label htmlFor="docType">Тип документа</label>
-                            <select id="docType" value={data.type} onChange={e => {
-                                setData({ ...data, type: e.target.options[e.target.selectedIndex].text })
+                            <select id="docType" value={data.document_type} onChange={e => {
+                                setData({ ...data, document_type: e.target.options[e.target.selectedIndex].text })
                             }
                             }>
                                 <option></option>

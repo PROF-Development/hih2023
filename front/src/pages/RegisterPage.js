@@ -1,10 +1,8 @@
 import React from "react";
-
+import RegisterUserForm from "../components/RegisterUserForm";
 const RegisterPage = () => {
     return (
-    <div>
-        
-    </div>
+    <RegisterUserForm/>
     )
 }
 export default RegisterPage;
