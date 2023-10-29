@@ -29,13 +29,17 @@ const LoginForm = () => {
             return
         }
         loginUser(loginData).then(e => {
-            if (e) {
-                e === 'manager' ? store.dispatch(superUserAction) : store.dispatch(setAuthAction)
+                // e.role === 'manager' ? store.dispatch(superUserAction) : store.dispatch(setAuthAction)
+                store.dispatch(superUserAction)
                 navigate('/')
-            }
-            else {
-                setLoginError('Неправильный логин и/или пароль')
-            }
+            // if (e) {
+            //     console.log(e)
+            //     e.role === 'manager' ? store.dispatch(superUserAction) : store.dispatch(setAuthAction)
+            //     navigate('/')
+            // }
+            // else {
+            //     setLoginError('Неправильный логин и/или пароль')
+            // }
         })
         
     }
