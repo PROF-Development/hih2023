@@ -62,24 +62,24 @@ class DocumentService:
 
         result = {}
         for tag in res:
-            el = await self.repository.get_document(tag.id)
+            e = await self.repository.get_document(tag.id)
             the_tags = []
             for el in await self.tags_repository.get_document_tags(tag.id):
                 if el:
                     the_tags.append(el[0].tag)
 
-            idx = el[0].id
+            idx = e[0].id
 
             if idx in result:
                 result[idx]['tags'].append(tag.tag)
             else:
                 result[idx] = {
                     'id': idx,
-                    'document_type': el[0].document_type,
-                    'name': el[0].name,
-                    'number': el[0].number,
-                    'release_date': el[0].release_date,
-                    'start_date': el[0].start_date,
+                    'document_type': e[0].document_type,
+                    'name': e[0].name,
+                    'number': e[0].number,
+                    'release_date': e[0].release_date,
+                    'start_date': e[0].start_date,
                     'tags': the_tags,
                 }
 
