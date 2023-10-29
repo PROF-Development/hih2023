@@ -1,7 +1,7 @@
 from internal.core.roles import Roles
-from internal.repositories.db.helpers import hash_password
+from internal.core.utils import hash_password
+from internal.repositories.db._session import get_session_maker
 from internal.repositories.db.models import User
-from internal.repositories.db.session import get_session_maker
 from sqlalchemy import insert, select, update
 
 

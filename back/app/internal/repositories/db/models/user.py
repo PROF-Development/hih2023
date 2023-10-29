@@ -1,11 +1,7 @@
 from internal.core.roles import Roles
 from internal.repositories.db.models.base import Base
-from passlib.context import CryptContext
 from sqlalchemy import LargeBinary, String
 from sqlalchemy.orm import Mapped, mapped_column
-
-
-pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 
 class User(Base):

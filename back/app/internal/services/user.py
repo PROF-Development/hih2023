@@ -3,8 +3,9 @@ from typing import Iterable
 from fastapi.exceptions import HTTPException
 
 from internal.core.roles import Roles
-from internal.repositories.db.helpers import check_password
+from internal.core.utils import check_password
 from internal.repositories.db.users import UserRepository
+from sqlalchemy.exc import IntegrityError
 
 
 class UserService:
@@ -45,8 +46,8 @@ class UserService:
     async def add_user(self, login: str, password: str, role: Roles = Roles.employee):
         try:
             await self.repository.add_user(login, password, role)
-        except Exception as e:
-            raise e
+        except IntegrityError as e:
+            raise HTTPException(409, detail='User already exists') from e
 
     async def update_user(self, login: str = None, password: str = None, role: Roles = None):
         await self.repository.update_user(login, password, role)
