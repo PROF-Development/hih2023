@@ -5,6 +5,7 @@ import '../styles/bootstrap-grid.min.css';
 import '../styles/style.css';
 import { useStore, useSelector } from 'react-redux';
 import { superUserAction,setAuthAction,logOutAction } from '../store/actions/auth';
+import HeaderAdmin from './HeaderAdmin';
 
 const Header = () => {
     const store = useStore()
@@ -12,6 +13,8 @@ const Header = () => {
     const [auth, setAuth] = useState(authStatus)
 
     useEffect(() => {
+        if (localStorage.getItem('access_token'))
+            store.dispatch(superUserAction)
         setAuth(authStatus)
     }, [authStatus])
 
@@ -41,8 +44,9 @@ const Header = () => {
                             <Link to="/" className="header-buttons__btn btn btn-primary" onClick={handleLogout}>Выйти</Link> 
                             :<Link to="/login" className="header-buttons__btn btn btn-primary">Вход</Link>
                             }
-                            {auth.isSuperUser ? <Link to="/admin" className="header-buttons__btn btn btn-primary">Админ панель</Link> : <></>}
+                            
                         </div>
+                        {auth.isSuperUser ? <HeaderAdmin/>: <></>}
                     </div>
                 </div>
             </div>

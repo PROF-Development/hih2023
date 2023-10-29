@@ -467,6 +467,13 @@ button {
   flex-direction: column;
   margin-bottom: 4rem;
 }
+.reg-form__group select {
+  border: 1px solid #4BE1CD;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
 .reg-form__group label, .reg-form__group input {
   font-size: 2rem;
 }
@@ -815,10 +822,10 @@ button {
   transform: translate(-2%, -52%);
 }
 .profile-photo__refresh::before {
-  background: url("../../public/img/edit.png") no-repeat center/contain;
+  background: url("../../public/img/Edit.png") no-repeat center/contain;
 }
 .profile-photo__delete::before {
-  background: url("../../public/img/delete.png") no-repeat center/contain;
+  background: url("../../public/img/Delete.png") no-repeat center/contain;
 }
 .profile-edit {
   margin-left: 6rem;

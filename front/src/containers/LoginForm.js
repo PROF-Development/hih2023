@@ -89,7 +89,7 @@ const LoginForm = () => {
                                     <span className="auth-form__group">{loginData.password.length > 0 ? loginDataError.passwordError : null}</span>
                                 </div>
                                 <button type="submit" className="btn btn-primary auth-form__btn" onClick={loginHandler}>Войти</button>
-                                <span>{loginError}</span>
+                                <h1 >{loginError}</h1>
                             </form>
                         </div>
                     </div>

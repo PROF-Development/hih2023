@@ -8,6 +8,10 @@ import SearchPage from './pages/SearchPage';
 import NoMatchPage from './pages/NoMatchPage';
 import HomePage from './pages/HomePage';
 import AuthorizationRoutes from './containers/AuthorizationRoutes';
+import ForbiddenPage from './pages/ForbiddenPage';
+import ManagerRoutes from './containers/ManagerRoutes';
+import CreateDocumentPage from './pages/CreateDocumentPage';
+import RegisterPage from './pages/RegisterPage';
 
 const App = () => {
     return (
@@ -23,6 +27,12 @@ const App = () => {
                 <Route path="/user/" element={<AuthorizationRoutes />}>
                     <Route path='/user/search' element={<SearchPage />} />
                 </Route>
+
+                <Route path="/manager/" element={<ManagerRoutes />}>
+                    <Route path="/manager/create" element={<CreateDocumentPage/>}/>
+                    <Route path="/manager/register" element={<RegisterPage/>}/>
+                </Route>
+                <Route path="/forbidden" element={<ForbiddenPage/>}/>
             </Routes>
         </Router>
     )
