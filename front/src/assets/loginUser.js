@@ -2,18 +2,17 @@ import axios from 'axios';
 
 import getHost from './getHost';
 
-const loginUser = async({username, password}) => {
-    const body = {
-        login: username,
-        password: password,
-    }
+const loginUser = async(form) => {
     var host = getHost()
-    const role = await axios.post(host+'/api/v1/auth/login', body).then(
-        response => {
-            localStorage.setItem('token', response.data.token)
-            response.data.role
-        }).catch(() => null)
-    return role
+    return await axios.post({
+        url: host+'/auth/login',
+        data: form,
+    }).then(response => {
+        localStorage.setItem('access_token', response.data.access_token)
+        return response.data.role
+    }).catch(error => {
+        return null
+    })
 }
 
 export default loginUser;
