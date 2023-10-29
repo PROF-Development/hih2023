@@ -1,15 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
+import  '../styles/reset.css';
+import '../styles/bootstrap-grid.min.css';
 import '../styles/style.css';
+
 const NoMatchPage = () => {
     return (
-        <div className="not-found">
-            <div className="not-found-content">
-                <h1>404 - Страница не найдена</h1>
-                <p>Извините, запрашиваемая страница не существует.</p>
-                <Link to="/" className="back-link">Вернуться на главную</Link>
+        <section className="section nf">
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-8 col-lg-6">
+                        <div className="nf-wrapper">
+                            <h1 className="nf-title">Ошибка 404 — страница не найдена</h1>
+                            <h2 className="nf-subtitle">Извините, запрашиваемая страница не существует</h2>
+                            <Link to='/'><button className="btn btn-primary nf-btn">Вернуться на главную</button></Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     );
 }
 
