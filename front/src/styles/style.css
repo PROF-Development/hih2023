@@ -645,7 +645,7 @@ button {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background: url("../../public/img/Paper Plus.png") no-repeat center/contain;
+  background: url("../../public/img/PaperPlus.png") no-repeat center/contain;
   transform: translate(-2%, -50%);
 }
 .add-form__file p {
@@ -743,7 +743,7 @@ button {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background: url("../../public/img/Paper plus.png") no-repeat center/contain;
+  background: url("../../public/img/PaperPlus.png") no-repeat center/contain;
   transform: translate(-2%, -50%);
 }
 .change-form__file p {
