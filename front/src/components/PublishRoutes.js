@@ -2,7 +2,7 @@ import Header from '../containers/Header';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 
-const AppWrapper = () => {
+const PublishRoutes = () => {
     return (
         <div>
             <Header/>
@@ -11,4 +11,4 @@ const AppWrapper = () => {
     )
 }
 
-export default AppWrapper
+export default PublishRoutes;

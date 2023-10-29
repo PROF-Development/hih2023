@@ -18,7 +18,7 @@ const PopUp = () => {
   return (
       <Popup trigger=
                 {<div className="search-label__filt" onClick={open}>
-                  <img src="img/Filter.png" alt="filter"></img>
+                  <img src="../../img/Filter.png" alt="filter"></img>
                   <p>фильтр</p>
                 </div>}modal nested>
                 {close => (
