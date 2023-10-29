@@ -3,7 +3,6 @@ from uuid import UUID, uuid4
 
 from fastapi.exceptions import HTTPException
 
-import config
 from internal.repositories.db.document import DocumentRepository
 from internal.repositories.db.tags import DocumentTagsRepository
 from sqlalchemy.exc import IntegrityError
@@ -35,8 +34,10 @@ class DocumentService:
         start_date: datetime.date = None,
         tags: list[str] = None,
     ):
+        # Лютый овнокод на память
         data = await self.repository.get_documents(document_type, name, number, release_date, start_date)
-        if config.DEBUG or not config.DEBUG:
+
+        if not tags:
             return [
                 {
                     'id': el[0].id,
@@ -45,18 +46,44 @@ class DocumentService:
                     'number': el[0].number,
                     'release_date': el[0].release_date,
                     'start_date': el[0].start_date,
-                    'tags': ['something'],
+                    'tags': [el[0].tag for el in await self.tags_repository.get_document_tags(el[0].id)],
                 }
                 for el in data
             ]
-        if not tags:
-            return data
 
         res = []
 
         for el in data:
             el_id = el[0].id
-            res.append(self.tags_repository.get_documents(el_id, tags))
+            r = await self.tags_repository.get_documents(el_id, tags)
+            if r:
+                for e in r:
+                    res.append(e)
+
+        result = {}
+        for tag in res:
+            el = await self.repository.get_document(tag.id)
+            the_tags = []
+            for el in await self.tags_repository.get_document_tags(tag.id):
+                if el:
+                    the_tags.append(el[0].tag)
+
+            idx = el[0].id
+
+            if idx in result:
+                result[idx]['tags'].append(tag.tag)
+            else:
+                result[idx] = {
+                    'id': idx,
+                    'document_type': el[0].document_type,
+                    'name': el[0].name,
+                    'number': el[0].number,
+                    'release_date': el[0].release_date,
+                    'start_date': el[0].start_date,
+                    'tags': the_tags,
+                }
+
+        return result.values()
 
     async def add_document(self, document_type: str, name: str, number: str, release_date: datetime.date, start_date: datetime.date, tags: list[str]):
         uuid = uuid4()
