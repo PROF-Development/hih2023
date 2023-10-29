@@ -817,7 +817,6 @@ button {
   background: url("../../public/img/edit.png") no-repeat center/contain;
 }
 .profile-photo__delete::before {
-    margin-top: 2rem;
   background: url("../../public/img/delete.png") no-repeat center/contain;
 }
 .profile-edit {
