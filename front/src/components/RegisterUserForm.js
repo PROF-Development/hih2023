@@ -70,7 +70,6 @@ const RegisterUserForm = () => {
             </div>
         </section>
     )
-
 }
 
 export default RegisterUserForm;

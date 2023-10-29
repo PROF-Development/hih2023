@@ -525,6 +525,7 @@ button {
   margin-bottom: 2rem;
   font-family: "Muller Medium";
   font-size: 5.5rem;
+  color: #fff;
 }
 .nf-subtitle {
   max-width: 38rem;
@@ -651,7 +652,7 @@ button {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background: url("../../public/img/Paper Plus.png") no-repeat center/contain;
+  background: url("../../public/img/PaperPlus.png") no-repeat center/contain;
   transform: translate(-2%, -50%);
 }
 .add-form__file p {
@@ -749,7 +750,7 @@ button {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background: url("../../public/img/Paper Plus.png") no-repeat center/contain;
+  background: url("../../public/img/PaperPlus.png") no-repeat center/contain;
   transform: translate(-2%, -50%);
 }
 .change-form__file p {

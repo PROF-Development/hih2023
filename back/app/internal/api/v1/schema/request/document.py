@@ -15,3 +15,7 @@ class PatchDocumentRequest(DocumentIdSchema, DocumentNoIdOptionalSchema):
 
 class CreateDocumentRequest(DocumentNoIdSchema):
     pass
+
+
+class AddDocumentRequest(BaseModel):
+    document_type: str
