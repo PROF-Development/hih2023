@@ -11,7 +11,7 @@ from internal.core.exception_handlers import http_exception_handler, request_val
 from internal.core.logs.log_record_factory import LogRecordFactory
 from internal.core.middlewares import AddHeaderMiddleware, LoggingMiddleware
 from internal.core.settings.validators import validate_config
-from internal.repositories.db.session import create_tables
+from internal.repositories.db.helpers import create_tables
 
 
 def add_routers(app: FastAPI):
