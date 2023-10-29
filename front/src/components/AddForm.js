@@ -35,7 +35,7 @@ const AddForm = () => {
                             </div>
                             <div className="col-12 col-md-6">
                                 <div className="add-form__group">
-                                    <label for="dateCh">Дава ввода действия</label>
+                                    <label for="dateCh">Дата введения в действие</label>
                                     <input type="date" name="" id="dateCh" required></input>
                                 </div>
                             </div>
